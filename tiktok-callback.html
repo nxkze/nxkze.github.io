@@ -1,0 +1,12 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ClipAgent sign-in</title><link rel="stylesheet" href="style.css"></head><body><main>
+<h1>Almost <span>done</span></h1>
+<p id="msg">Copy the line below and paste it into the ClipAgent Setup window.</p>
+<p><input id="u" readonly style="width:100%;padding:12px;font:14px monospace;background:#1a1514;color:#e9e4e0;border:1px solid #2a2423;border-radius:6px"></p>
+<a class="cta" href="#" id="c">Copy</a>
+<footer><a href="index.html">Home</a> &middot; <a href="privacy.html">Privacy Policy</a></footer>
+<script>
+var u=document.getElementById('u');u.value=location.href;
+if(!/[?&]code=/.test(location.search)){document.getElementById('msg').textContent='No sign-in code here. Start the TikTok sign-in from ClipAgent Setup.';}
+document.getElementById('c').onclick=function(e){e.preventDefault();u.select();try{navigator.clipboard.writeText(u.value)}catch(x){document.execCommand('copy')}this.textContent='Copied';};
+</script></main></body></html>
